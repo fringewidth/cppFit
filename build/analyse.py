@@ -64,6 +64,9 @@ def main():
     best_index = np.argmax(coeff_det)
     print("Best model: ", models[best_index].__name__)
     print("Equation: ", get_eq(models[best_index], params[best_index]))
+    if models[best_index].__name__ == "polynomial":
+        print(f"(most likely O(n^{round(params[best_index][1])}))")
+
     print("R^2 Score: ", coeff_det[best_index])
 
     plt.plot(x, models[best_index](x, *params[best_index]), color = 'red')
