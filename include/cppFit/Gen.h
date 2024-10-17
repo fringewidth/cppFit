@@ -24,10 +24,10 @@ class Gen {
         op_CSV(std::make_unique<CSV_Writer>(csv_path)), start(start), end(end), inc(inc), 
         sorted(sorted), num_incs((end-start)/inc + 1) {
             // validation
-            if(start < 1) throw "Start must be positive and non zero";
-            if(end <= start) throw "End must be greater than start";
-            if(inc < 1) throw "Increment must be postive and non zero";
-            if(inc >= end - start) throw "Increment must be lesser than the difference between end and start";          
+            if(start < 1) throw std::invalid_argument("Start must be positive and non zero");
+            if(end <= start) throw std::invalid_argument("End must be greater than start");
+            if(inc < 1) throw std::invalid_argument("Increment must be postive and non zero");
+            if(inc >= end - start) throw std::invalid_argument("Increment must be lesser than the difference between end and start");          
         }
 
     private:
